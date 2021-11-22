@@ -15,6 +15,10 @@ public class ThemePark {
         return this.allReviewed;
     }
 
+    public void addToAllReviewed(IReviewed concession){
+        this.allReviewed.add(concession);
+    }
+
     public void visit(Visitor visitor, Attraction attraction){
         attraction.setVisitCount(1);
         visitor.addAttractionToVisitedList(attraction);
