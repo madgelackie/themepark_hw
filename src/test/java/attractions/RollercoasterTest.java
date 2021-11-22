@@ -12,6 +12,9 @@ public class RollercoasterTest {
     Visitor visitor1;
     Visitor visitor2;
     Visitor visitor3;
+    Visitor visitor4;
+    Visitor visitor5;
+    Visitor visitor6;
 
     @Before
     public void setUp() {
@@ -19,6 +22,9 @@ public class RollercoasterTest {
         visitor1 = new Visitor(16, 150, 30);
         visitor2 = new Visitor(11, 150, 25);
         visitor3 = new Visitor(11, 130, 50);
+        visitor4 = new Visitor(18, 201, 50);
+        visitor5 = new Visitor(18, 200, 50);
+        visitor6 = new Visitor(18, 199, 50);
     }
 
     @Test
@@ -49,5 +55,20 @@ public class RollercoasterTest {
     @Test
     public void cantVisitFailsBothConditions(){
         assertEquals(false, rollerCoaster.isAllowedTo(visitor3));
+    }
+
+    @Test
+    public void hasPriceForOver200cm(){
+        assertEquals(16.80, rollerCoaster.priceFor(visitor4), 0.001);
+    }
+
+    @Test
+    public void hasPriceFor200cm(){
+        assertEquals(8.40, rollerCoaster.priceFor(visitor5), 0.001);
+    }
+
+    @Test
+    public void hasPriceForUnder200cm(){
+        assertEquals(8.40, rollerCoaster.priceFor(visitor6), 0.001);
     }
 }
